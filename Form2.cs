@@ -25,7 +25,8 @@ namespace WindowsFormsApp1
 
         private void Run_button_DoubleClick(object sender, EventArgs e)
         {
-
+            Form3 from = new Form3();
+            from.Show();
         }
     }
 }

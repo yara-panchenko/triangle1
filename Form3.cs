@@ -16,6 +16,10 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
         }
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             double a, b, c, h;
@@ -42,16 +46,16 @@ namespace WindowsFormsApp1
             valuesList.Items.Add("Площадь");
             if (a != 0 || b != 0 || c != 0 || h != 0)
             {
-                valuesList.Items[0].SubItems.Add(triangleForm.outputA());
-                valuesList.Items[1].SubItems.Add(triangleForm.outputB());
-                valuesList.Items[2].SubItems.Add(triangleForm.outputC());
-                valuesList.Items[3].SubItems.Add(triangleForm.outputH());
+                valuesList.Items[1].SubItems.Add(triangleForm.outputA());
+                valuesList.Items[2].SubItems.Add(triangleForm.outputB());
+                valuesList.Items[3].SubItems.Add(triangleForm.outputC());
+                valuesList.Items[4].SubItems.Add(triangleForm.outputH());
             }
             valuesList.Items[0].SubItems.Add(triangleForm.TypeOfTriangle());
-            valuesList.Items[1].SubItems.Add(triangleForm.outputA());
-            valuesList.Items[2].SubItems.Add(triangleForm.outputB());
-            valuesList.Items[3].SubItems.Add(triangleForm.outputC());
-            valuesList.Items[4].SubItems.Add(triangleForm.outputH());
+            //valuesList.Items[1].SubItems.Add(triangleForm.outputA());
+            //valuesList.Items[2].SubItems.Add(triangleForm.outputB());
+            //valuesList.Items[3].SubItems.Add(triangleForm.outputC());
+            //valuesList.Items[4].SubItems.Add(triangleForm.outputH());
             valuesList.Items[5].SubItems.Add(Convert.ToString(triangleForm.AreaOfTriangle()));
         }
     }
