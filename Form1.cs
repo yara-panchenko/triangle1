@@ -35,8 +35,8 @@ namespace WindowsFormsApp1
             listView1.Items.Add("Сторона а");
             listView1.Items.Add("Сторона b");
             listView1.Items.Add("Сторона c");
-            listView1.Items.Add("Высота  h");
             listView1.Items.Add("Периметр");
+            listView1.Items.Add("Высота h");
             listView1.Items.Add("Площадь");
             listView1.Items.Add("Полупериметр");
             listView1.Items.Add("Существует?");
@@ -46,7 +46,7 @@ namespace WindowsFormsApp1
             listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
             listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
             listView1.Items[5].SubItems.Add(Convert.ToString(triangle.SemiPerimeter()));
-            if (triangle.ExistTriangle) { listView1.Items[6].SubItems.Add("Существует"); }
+            if (triangle.ExistTriangle) { listView1.Items[6].SubItems.Add("Существует");}
             else listView1.Items[6].SubItems.Add("Не существует");
             listView1.Items[7].SubItems.Add(triangle.TriangleType());
             pictureBox1.Image = Image.FromFile(triangle.ImageType());

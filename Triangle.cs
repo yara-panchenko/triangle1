@@ -27,9 +27,9 @@ namespace WindowsFormsApp1
             h = H;
         }
 
-        public string outputA() // выводим сторону а, данный метод возвращает строковое значение
+        public string outputA() 
         {
-            return Convert.ToString(a); // a - ссылка на внутренее поле обьекта класса
+            return Convert.ToString(a); 
         }
         public string outputB() 
         {
@@ -44,20 +44,20 @@ namespace WindowsFormsApp1
              return Convert.ToString(h);
            
         }
-        public double Perimeter() // сумма всех сторон типо double
+        public double Perimeter() 
         {
             double p = 0;
-            p = a + b + c; // вычисление
-            return p; // возврат
+            p = a + b + c; 
+            return p; 
         }
         public double SemiPerimeter() 
         {
             double p = 0;
-            p = (a + b + c) / 2; // вычисление
-            return p; // возврат
+            p = (a + b + c) / 2; 
+            return p; 
         }
 
-        public double Surface() // аналогично периметру
+        public double Surface() 
         {
             double s = 0;
             double p = 0;
@@ -73,11 +73,11 @@ namespace WindowsFormsApp1
         }
 
        
-        public double GetSetA // свойство позволяющее установить либо изменить значение стороны а
+        public double GetSetA 
         {
-            get //устанавливаем
+            get 
             { return a; }
-            set // меняем
+            set
             { a = value;}
         }
         public double GetSetB
@@ -101,18 +101,18 @@ namespace WindowsFormsApp1
             set
             { h = value; }
         }
-        public bool ExistTriangle // свойство позволяющее установить, существует ои треугольник с задаными сторонами
+        public bool ExistTriangle 
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b)) //сумма 2 сторон должна быть больше третьей
+                if ((a > b + c) && (b > a + c) && (c > a + b)) 
                 return false;
                 else return true;
             }
         }
 
 
-        public string TriangleType() // типы треугольников
+        public string TriangleType() 
         {
            
            if  ((a == b) && (b == c) && (c == a))
@@ -129,20 +129,20 @@ namespace WindowsFormsApp1
            }
             return answer;
         }
-        public string ImageType()// изменение картинки 
+        public string ImageType()
         {
             string image = "";
             if (answer == "Равносторонний") 
             {
-                image = @"C:\Users\PC\source\repos\WindowsFormsApp1\WindowsFormsApp1\image\ravno.png"; 
+                image = @"C:\Users\opilane\source\repos\triangle1\image\ravno.png"; 
             }
-            if (answer == "Равнобедренный") //проверяем условие
+            if (answer == "Равнобедренный")
             {
-                image = @"C:\Users\PC\source\repos\WindowsFormsApp1\WindowsFormsApp1\image\ravnobed.png"; 
+                image = @"C:\Users\opilane\source\repos\triangle1\image\ravnobed.png"; 
             }
-            if (answer == "Разносторонний") //проверяем условие
+            if (answer == "Разносторонний")
             {
-                image = @"C:\Users\PC\source\repos\WindowsFormsApp1\WindowsFormsApp1\image\raznost.png"; 
+                image = @"C:\Users\opilane\source\repos\triangle1\image\raznost.png"; 
             }
             return image;
         }
