@@ -59,6 +59,7 @@ namespace WindowsFormsApp1
 
         public double Surface() 
         {
+
             double s = 0;
             double p = 0;
             p = (a + b + c) / 2;
@@ -110,7 +111,22 @@ namespace WindowsFormsApp1
                 else return true;
             }
         }
-
+        public string TypeOfTriangle()
+        {
+            if ((a * a == b * b + c * c) || (b * b == c * c + a * a) || (c * c == a * a + b * b))
+            {
+                answer = "Прямоугольный";
+            }
+            else if ((a * a > b * b + c * c) || (c * c > a * a + b * b) || (b * b > a * a + c * c))
+            {
+                answer = "Тупоугольный";
+            }
+            else
+            {
+                answer = "Остроугольный";
+            }
+            return answer;
+        }
 
         public string TriangleType() 
         {
@@ -145,6 +161,18 @@ namespace WindowsFormsApp1
                 image = @"C:\Users\opilane\source\repos\triangle1\image\raznost.png"; 
             }
             return image;
+        }
+        public double med()
+        {
+            double m = 0;
+            m = Math.Round((Math.Sqrt(2 * b * b + 2 * c * c - a * a) / 2), 2);
+            return m;
+        }
+        public double bis()
+        {
+            double bisectrisa;
+            bisectrisa = Math.Round(Math.Sqrt(b * c * ((b + c) * (b + c) - a * a)) / (b + c), 2);
+            return bisectrisa;
         }
     }
 }
