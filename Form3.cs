@@ -12,10 +12,13 @@ namespace WindowsFormsApp1
 {
     public partial class Form3 : Form
     {
+        Graphics gp;
+        Pen p = new Pen(Brushes.Black, 2);
         ListBox _list;
-        Button btn;
+        Button btn, draw;
         Label lbl1, lbl2, lbl3, lbl4;
         TextBox box1, box2, box3, box4;
+        Panel panel1;
         public Form3()
         {
             this.Size = new Size(300, 450);
@@ -61,6 +64,19 @@ namespace WindowsFormsApp1
             box4 = new TextBox();
             box4.Location = new Point(120, 270);
             Controls.Add(box4);
+            draw = new Button();
+            draw.Location = new Point(20, 350);
+            draw.Size = new Size(80, 40);
+            draw.Click += Btn1_Click;
+            draw.Text = "Нарисовать";
+            Controls.Add(draw);
+            panel1 = new Panel();
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(565, 585);
+            panel1.TabIndex = 13;
+            Controls.Add(panel1);
+            gp = panel1.CreateGraphics();
         }
         private void Btn_Click(object sender, EventArgs e)
         {
@@ -93,6 +109,15 @@ namespace WindowsFormsApp1
             _list.Items.Add("Тип треугольника по сторонам:" + " " + triangle.TriangleType());
             _list.Items.Add("M:" + " " + Convert.ToString(triangle.med()));
             _list.Items.Add("Bis:" + " " + Convert.ToString(triangle.bis()));
+        }
+        private void Btn1_Click(object sender, EventArgs e)
+        {
+            Point p1 = new Point(5, 5);
+            Point p2 = new Point(150, 5);
+            Point p3 = new Point(75, 30);
+            gp.DrawLine(p, p1, p2);
+            gp.DrawLine(p, p2, p3);
+            gp.DrawLine(p, p3, p1);
         }
     }
 }
