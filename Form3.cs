@@ -15,13 +15,13 @@ namespace WindowsFormsApp1
         Graphics gp;
         Pen p = new Pen(Brushes.Black, 2);
         ListBox _list;
-        Button btn, draw;
+        Button btn;
         Label lbl1, lbl2, lbl3, lbl4;
         TextBox box1, box2, box3, box4;
         Panel panel1;
         public Form3()
         {
-            this.Size = new Size(300, 450);
+            this.Size = new Size(800, 900);
             _list = new ListBox();
             _list.Location = new Point(10, 10);
             _list.Size = new Size(265, 150);
@@ -64,12 +64,6 @@ namespace WindowsFormsApp1
             box4 = new TextBox();
             box4.Location = new Point(120, 270);
             Controls.Add(box4);
-            draw = new Button();
-            draw.Location = new Point(20, 350);
-            draw.Size = new Size(80, 40);
-            draw.Click += Btn1_Click;
-            draw.Text = "Нарисовать";
-            Controls.Add(draw);
             panel1 = new Panel();
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
@@ -95,7 +89,7 @@ namespace WindowsFormsApp1
                 b = Convert.ToDouble(box2.Text);
                 c = Convert.ToDouble(box3.Text);
                 h = Convert.ToDouble(box4.Text);
-            }
+            }        
             Triangle triangle = new Triangle(a, b, c, h);
             _list.Items.Add("A:" + " " + triangle.outputA());
             _list.Items.Add("B:" + " " + triangle.outputB());
@@ -109,15 +103,61 @@ namespace WindowsFormsApp1
             _list.Items.Add("Тип треугольника по сторонам:" + " " + triangle.TriangleType());
             _list.Items.Add("M:" + " " + Convert.ToString(triangle.med()));
             _list.Items.Add("Bis:" + " " + Convert.ToString(triangle.bis()));
-        }
-        private void Btn1_Click(object sender, EventArgs e)
-        {
-            Point p1 = new Point(5, 5);
-            Point p2 = new Point(150, 5);
-            Point p3 = new Point(75, 30);
-            gp.DrawLine(p, p1, p2);
-            gp.DrawLine(p, p2, p3);
-            gp.DrawLine(p, p3, p1);
-        }
+            _list.Items.Add("Sin А:" + " " + Convert.ToString(triangle.Sin()));
+            if (triangle.TriangleType() == "Равносторонний")
+            {
+                Point p1 = new Point(600, 200);
+                Point p2 = new Point(680, 200);
+                Point p3 = new Point(640, 150);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+            else if (triangle.TriangleType() == "Равнобедренный")
+            {
+                Point p1 = new Point(520, 200);
+                Point p2 = new Point(560, 200);
+                Point p3 = new Point(540, 130);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+            else if (triangle.TriangleType() == "Разносторонний")
+            {
+                Point p1 = new Point(305, 200);
+                Point p2 = new Point(450, 200);
+                Point p3 = new Point(355, 130);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+            if(triangle.TypeOfTriangle()== "Прямоугольный")
+            {
+                Point p1 = new Point(605, 5);
+                Point p2 = new Point(605, 60);
+                Point p3 = new Point(675, 60);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+            else if (triangle.TypeOfTriangle()== "Тупоугольный")
+            {
+                Point p1 = new Point(485, 5);
+                Point p2 = new Point(520, 60);
+                Point p3 = new Point(580, 60);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+            else if (triangle.TypeOfTriangle() == "Остроугольный")
+            {
+                Point p1 = new Point(305, 60);
+                Point p2 = new Point(450, 60);
+                Point p3 = new Point(355, 5);
+                gp.DrawLine(p, p1, p2);
+                gp.DrawLine(p, p2, p3);
+                gp.DrawLine(p, p3, p1);
+            }
+        }       
     }
 }

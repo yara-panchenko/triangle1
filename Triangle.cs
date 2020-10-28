@@ -174,5 +174,11 @@ namespace WindowsFormsApp1
             bisectrisa = Math.Round(Math.Sqrt(b * c * ((b + c) * (b + c) - a * a)) / (b + c), 2);
             return bisectrisa;
         }
+        public double Sin()
+        {
+            double sinus;
+            sinus = Math.Round((a / c), 2);
+            return sinus;
+        }
     }
 }

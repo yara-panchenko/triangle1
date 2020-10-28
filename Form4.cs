@@ -97,34 +97,31 @@ namespace WindowsFormsApp1
 
         private void Btn6_Click(object sender, EventArgs e)
         {
-            Point p1 = new Point(5, 5);
-            Point p2 = new Point(150, 5);
-            Point p3 = new Point(75, 30);
+            Point p1 = new Point(300, 200);
+            Point p2 = new Point(380, 200);
+            Point p3 = new Point(340, 150);
             gp.DrawLine(p, p1, p2);
             gp.DrawLine(p, p2, p3);
             gp.DrawLine(p, p3, p1);
         }
-
         private void Btn5_Click(object sender, EventArgs e)
         {
-            Point p1 = new Point(85, 5);
-            Point p2 = new Point(120, 60);
-            Point p3 = new Point(150, 60);
+            Point p1 = new Point(220, 200);
+            Point p2 = new Point(260, 200);
+            Point p3 = new Point(240, 130);
             gp.DrawLine(p, p1, p2);
             gp.DrawLine(p, p2, p3);
             gp.DrawLine(p, p3, p1);
         }
-
         private void Btn4_Click(object sender, EventArgs e)
         {
-            Point p1 = new Point(5, 5);
-            Point p2 = new Point(150, 5);
-            Point p3 = new Point(75, 30);
+            Point p1 = new Point(5, 200);
+            Point p2 = new Point(150, 200);
+            Point p3 = new Point(55, 130);
             gp.DrawLine(p, p1, p2);
             gp.DrawLine(p, p2, p3);
             gp.DrawLine(p, p3, p1);
         }
-
         private void Btn3_Click(object sender, EventArgs e)
         {
             Point p1 = new Point(305, 5);
@@ -134,7 +131,6 @@ namespace WindowsFormsApp1
             gp.DrawLine(p, p2, p3);
             gp.DrawLine(p, p3, p1);
         }
-
         private void Btn2_Click(object sender, EventArgs e)
         {
             Point p1 = new Point(185, 5);
@@ -144,7 +140,6 @@ namespace WindowsFormsApp1
             gp.DrawLine(p, p2, p3);
             gp.DrawLine(p, p3, p1);
         }
-
         private void Btn1_Click(object sender, EventArgs e)
         {
             Point p1 = new Point(5, 60);
