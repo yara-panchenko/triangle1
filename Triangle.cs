@@ -44,6 +44,14 @@ namespace WindowsFormsApp1
              return Convert.ToString(h);
            
         }
+        
+        //        }
+        //        else
+        //        {
+        //            return h = 0;
+        //        }
+        //    }
+        //}
         public double Perimeter() 
         {
             double p = 0;
@@ -56,7 +64,21 @@ namespace WindowsFormsApp1
             p = (a + b + c) / 2; 
             return p; 
         }
-
+        public double Height()
+        {
+            double p;
+            //if (a < 0 || b < 0 || c < 0)
+            //{
+            //    return h = 0;
+            //}
+            //else
+            //{
+            //    if (ExistTriangle)
+            //    {
+            p = 0.5 * Perimeter();
+            h = Math.Round((2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a), 2);
+            return h;
+        }
         public double Surface() 
         {
 
@@ -65,15 +87,7 @@ namespace WindowsFormsApp1
             p = (a + b + c) / 2;
             s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
             return s;
-        }
-        public double Height()
-        {
-            double p = SemiPerimeter();
-            double h = 2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a;
-            return h;
-        }
-
-       
+        }       
         public double GetSetA 
         {
             get 
@@ -102,13 +116,19 @@ namespace WindowsFormsApp1
             set
             { h = value; }
         }
-        public bool ExistTriangle 
+        public bool ExistTriangle
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b)) 
-                return false;
-                else return true;
+                if ((a < b + c) && (b < a + c) && (c < a + b))
+                {
+                    return true;
+                }
+                else if (a < 0 || b < 0 || c < 0)
+                {
+                    return false;
+                }
+                else return false;
             }
         }
         public string TypeOfTriangle()
@@ -150,15 +170,15 @@ namespace WindowsFormsApp1
             string image = "";
             if (answer == "Равносторонний") 
             {
-                image = @"C:\Users\opilane\source\repos\triangle1\image\ravno.png"; 
+                image = @"C:\Users\Yarik\source\repos\triangle1\image\ravno.png"; 
             }
             if (answer == "Равнобедренный")
             {
-                image = @"C:\Users\opilane\source\repos\triangle1\image\ravnobed.png"; 
+                image = @"C:\Users\Yarik\source\repos\triangle1\image\ravnobed.png"; 
             }
             if (answer == "Разносторонний")
             {
-                image = @"C:\Users\opilane\source\repos\triangle1\image\raznost.png"; 
+                image = @"C:\Users\Yarik\source\repos\triangle1\image\raznost.png"; 
             }
             return image;
         }

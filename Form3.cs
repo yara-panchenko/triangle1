@@ -95,6 +95,31 @@ namespace WindowsFormsApp1
             _list.Items.Add("B:" + " " + triangle.outputB());
             _list.Items.Add("C:" + " " + triangle.outputC());
             _list.Items.Add("H:" + " " + triangle.outputH());
+            if (triangle.outputH() == "")
+            {
+                _list.Items.Add("Высота:" + " " + triangle.Height());
+                box4.Text = Convert.ToString(triangle.Height());
+
+            }
+            else
+            {
+                if (triangle.ExistTriangle)
+                {
+                    if (triangle.outputH() != Convert.ToString(triangle.Height()))
+                    {
+                        _list.Items.Add("Высота:" + " " + Convert.ToDouble(box4.Text) + "(Правильная высота: " + triangle.Height() + ")");
+                    }
+                    else
+                    {
+                        _list.Items.Add("Высота:" + " " + triangle.outputH());
+                    }
+                }
+                else
+                {
+                    _list.Items.Add("Высота:" + " 0");
+                }
+
+            }
             _list.Items.Add("P:" + " " + Convert.ToString(triangle.Perimeter()));
             _list.Items.Add("S:" + " " + Convert.ToString(triangle.Surface()));
             if (triangle.ExistTriangle) { _list.Items.Add("Exists"); }
@@ -104,6 +129,7 @@ namespace WindowsFormsApp1
             _list.Items.Add("M:" + " " + Convert.ToString(triangle.med()));
             _list.Items.Add("Bis:" + " " + Convert.ToString(triangle.bis()));
             _list.Items.Add("Sin А:" + " " + Convert.ToString(triangle.Sin()));
+            
             if (triangle.TriangleType() == "Равносторонний")
             {
                 Point p1 = new Point(600, 200);
