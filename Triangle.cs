@@ -13,27 +13,29 @@ namespace WindowsFormsApp1
         public string answer;
         public Triangle(double A, double B, double C)
         {
-
             a = A;
             b = B;
             c = C;
         }
-
-        public Triangle (double A, double B, double C,double H)
+        public Triangle(double A, double B, double C, double H)
         {
             a = A;
             b = B;
             c = C;
             h = H;
         }
-
-        public string outputA() 
+        public Triangle(double H, double B)
         {
-            return Convert.ToString(a); 
+            b = B;
+            h = H;
         }
-        public string outputB() 
+        public string outputA()
         {
-                return Convert.ToString(b);
+            return Convert.ToString(a);
+        }
+        public string outputB()
+        {
+            return Convert.ToString(b);
         }
         public string outputC()
         {
@@ -41,59 +43,102 @@ namespace WindowsFormsApp1
         }
         public string outputH()
         {
-             return Convert.ToString(h);
-           
+            return Convert.ToString(h);
         }
-        
-        //        }
-        //        else
-        //        {
-        //            return h = 0;
-        //        }
-        //    }
-        //}
-        public double Perimeter() 
-        {
-            double p = 0;
-            p = a + b + c; 
-            return p; 
-        }
-        public double SemiPerimeter() 
-        {
-            double p = 0;
-            p = (a + b + c) / 2; 
-            return p; 
-        }
-        public double Height()
+        public double HeightOfTriangle()
         {
             double p;
-            //if (a < 0 || b < 0 || c < 0)
-            //{
-            //    return h = 0;
-            //}
-            //else
-            //{
-            //    if (ExistTriangle)
-            //    {
-            p = 0.5 * Perimeter();
-            h = Math.Round((2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a), 2);
-            return h;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                return h = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    p = 0.5 * Perimeter();
+                    h = Math.Round((2 * Math.Sqrt(p * (p - a) * (p - b) * (p - c)) / a), 2);
+                    return h;
+                }
+                else
+                {
+                    return h = 0;
+                }
+            }
         }
-        public double Surface() 
+        public double AreaOfTriangle()
         {
-
-            double s = 0;
-            double p = 0;
-            p = (a + b + c) / 2;
-            s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
-            return s;
-        }       
-        public double GetSetA 
+            double S;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                S = 0;
+                return S;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    S = 1 / 2 * b * HeightOfTriangle();
+                    return S;
+                }
+                else
+                {
+                    return S = 0;
+                }
+            }
+        }
+        public double Perimeter()
         {
-            get 
+            double p;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                return p = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    p = a + b + c;
+                    return p;
+                }
+                else
+                {
+                    return p = 0;
+                }
+            }
+        }
+        public double PoluPerimeter()
+        {
+            return Perimeter() / 2;
+        }
+        public double Surface()
+        {
+            double s;
+            double p;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                return s = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    p = Perimeter() / 2;
+                    s = Math.Round(Math.Sqrt((p * (p - a) * (p - b) * (p - c))), 2);
+                    return s;
+                }
+                else
+                {
+                    return s = 0;
+                }
+            }
+        }
+        public double GetSetA
+        {
+            get
             { return a; }
             set
-            { a = value;}
+            { a = value; }
         }
         public double GetSetB
         {
@@ -108,13 +153,6 @@ namespace WindowsFormsApp1
             { return c; }
             set
             { c = value; }
-        }
-        public double GetSetH
-        {
-            get
-            { return h; }
-            set
-            { h = value; }
         }
         public bool ExistTriangle
         {
@@ -131,39 +169,46 @@ namespace WindowsFormsApp1
                 else return false;
             }
         }
+        public bool EquilateralTriangle
+        {
+            get
+            {
+                if ((a == b) || (a == c) || (b == c))
+                    return true;
+                else return false;
+            }
+        }
         public string TypeOfTriangle()
         {
-            if ((a * a == b * b + c * c) || (b * b == c * c + a * a) || (c * c == a * a + b * b))
+            if (a < 0 || b < 0 || c < 0)
             {
-                answer = "Прямоугольный";
-            }
-            else if ((a * a > b * b + c * c) || (c * c > a * a + b * b) || (b * b > a * a + c * c))
-            {
-                answer = "Тупоугольный";
+                answer = "";
+                return answer;
             }
             else
             {
-                answer = "Остроугольный";
-            }
-            return answer;
-        }
+                if (ExistTriangle)
+                {
+                    if ((a * a == b * b + c * c) || (b * b == c * c + a * a) || (c * c == a * a + b * b))
+                    {
+                        answer = "Прямоугольный";
+                    }
+                    else if ((a * a > b * b + c * c) || (c * c > a * a + b * b) || (b * b > a * a + c * c))
+                    {
+                        answer = "Тупоугольный";
+                    }
+                    else
+                    {
+                        answer = "Остроугольный";
+                    }
+                    return answer;
+                }
+                else
+                {
+                    return answer = "";
+                }
 
-        public string TriangleType() 
-        {
-           
-           if  ((a == b) && (b == c) && (c == a))
-           {
-                answer = "Равносторонний";
-           }
-           else if  ((a == b) || (b == c) || (a == c))
-           {
-                answer = "Равнобедренный";
-           }
-           else
-           {
-                answer = "Разносторонний";
-           }
-            return answer;
+            }
         }
         public string ImageType()
         {
@@ -182,23 +227,125 @@ namespace WindowsFormsApp1
             }
             return image;
         }
-        public double med()
+        public double mediana()
         {
-            double m = 0;
-            m = Math.Round((Math.Sqrt(2 * b * b + 2 * c * c - a * a) / 2), 2);
+            double m;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                m = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    m = Math.Round((Math.Sqrt(2 * b * b + 2 * c * c - a * a) / 2), 2);
+                }
+                else
+                {
+                    m = 0;
+                }
+            }
             return m;
         }
-        public double bis()
+        public double bisectrisa()
         {
             double bisectrisa;
-            bisectrisa = Math.Round(Math.Sqrt(b * c * ((b + c) * (b + c) - a * a)) / (b + c), 2);
+            if (a < 0 || b < 0 || c < 0)
+            {
+                bisectrisa = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    bisectrisa = Math.Round(Math.Sqrt(b * c * ((b + c) * (b + c) - a * a)) / (b + c), 2);
+                }
+                else
+                {
+                    bisectrisa = 0;
+                }
+            }
             return bisectrisa;
         }
         public double Sin()
         {
             double sinus;
-            sinus = Math.Round((a / c), 2);
+            if (a < 0 || b < 0 || c < 0)
+            {
+                sinus = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    sinus = Math.Round((a / c), 2);
+                }
+                else
+                {
+                    sinus = 0;
+                }
+            }
             return sinus;
+        }
+        public double ugolA()
+        {
+            double ugolA;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                ugolA = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    ugolA = Math.Round((Math.Acos((b * b + c * c - a * a) / (2 * b * c)) * 180 / Math.PI), 2);
+                }
+                else
+                {
+                    ugolA = 0;
+                }
+            }
+            return ugolA;
+        }
+        public double ugolB()
+        {
+            double ugolB;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                ugolB = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    ugolB = Math.Round((Math.Acos((a * a + c * c - b * b) / (2 * a * c)) * 180 / Math.PI), 2);
+                }
+                else
+                {
+                    ugolB = 0;
+                }
+            }
+            return ugolB;
+        }
+        public double ugolC()
+        {
+            double ugolC;
+            if (a < 0 || b < 0 || c < 0)
+            {
+                ugolC = 0;
+            }
+            else
+            {
+                if (ExistTriangle)
+                {
+                    ugolC = Math.Round((Math.Acos((a * a + b * b - c * c) / (2 * a * b)) * 180 / Math.PI), 2);
+                }
+                else
+                {
+                    ugolC = 0;
+                }
+            }
+            return ugolC;
         }
     }
 }

@@ -45,10 +45,10 @@ namespace WindowsFormsApp1
             listView1.Items[2].SubItems.Add(triangle.outputC());
             listView1.Items[3].SubItems.Add(Convert.ToString(triangle.Perimeter()));
             listView1.Items[4].SubItems.Add(Convert.ToString(triangle.Surface()));
-            listView1.Items[5].SubItems.Add(Convert.ToString(triangle.SemiPerimeter()));
+            //listView1.Items[5].SubItems.Add(Convert.ToString(triangle.SemiPerimeter()));
             if (triangle.ExistTriangle) { listView1.Items[6].SubItems.Add("Существует");}
             else listView1.Items[6].SubItems.Add("Не существует");
-            listView1.Items[7].SubItems.Add(triangle.TriangleType());
+            //listView1.Items[7].SubItems.Add(triangle.TriangleType());
             pictureBox1.Image = Image.FromFile(triangle.ImageType());
         }
         private void Form1_Load(object sender, EventArgs e)
